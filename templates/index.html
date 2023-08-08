@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/upload" method="POST">
+        <label data-id="main-content" for="file">Select CSV file for analysis:</label>
+        <br />
+        <input type="file" id="file" name="file" />
+        <br />
+        <input type="submit" />
+    </form>
+{% endblock %}
