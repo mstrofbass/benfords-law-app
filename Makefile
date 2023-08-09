@@ -8,4 +8,4 @@ docker-build:
 	docker build . -t bds-benfords
 
 docker-run:
-	docker run -p 5001:5000 bds-benfords
+	docker run -rf -p 5001:5000 bds-benfords
