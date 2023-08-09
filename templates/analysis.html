@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {%  if errors %}
+        <ul>
+        {% for error in errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+    {%  endif %}
+
+    <p>Analysis of {{ filename }}</p>
+
+    <ul>
+        {% for val, count, pct in count_tuples %}
+        <li>{{ val }}: {{ count }} ({{ pct }}%)</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for val, count, pct in count_tuples %}
+        <li>{{ val * pct }} ({{ pct }}%)</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

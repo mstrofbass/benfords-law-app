@@ -11,4 +11,4 @@ RUN poetry install --only main --no-root
 
 COPY . .
 
-CMD exec uvicorn main:app --host 0.0.0.0 --port ${PORT} --workers 1
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]

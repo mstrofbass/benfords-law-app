@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="/analyze" method="POST">
+        <input type="hidden" name="filename" id="filename" value="{{ filename }}" />
+        <input type="hidden" name="delimiter" id="delimiter" value="{{ delimiter }}" />
+
+        <label data-id="main-content" for="cols">Select column to analyze:</label>
+        <br />
+        <select id="col" name="col">
+            {% for col in cols %}
+            <option value="{{ col }}">{{ col }}</option>
+            {% endfor %}
+        </select>
+        <br />
+        <input type="submit" />
+    </form>
+{% endblock %}

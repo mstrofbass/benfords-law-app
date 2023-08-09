@@ -1,11 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="/upload" method="POST">
+    <form action="/upload" method="post" enctype="multipart/form-data">
         <label data-id="main-content" for="file">Select CSV file for analysis:</label>
         <br />
-        <input type="file" id="file" name="file" />
+        <input type="file" id="upload_file" name="upload_file" />
+        <br />
+        <br />
+        <label for="delimiter">Select CSV delimiter:</label>
+        <br />
+        <select id="delimiter" name="delimiter">
+            <option value="comma">Comma</option>
+            <option value="tab">Tab</option>
+        </select>
+        <br />
         <br />
         <input type="submit" />
     </form>
+    <br />
+    <br />
+    <h2>Previous Files</h2>
+
+    {% if existing_files | length > 0 %}
+        {% for f in existing_files %}
+        <a href="/view/{{ f | urlencode }}">{{ f }}</a>
+        {%  endfor %}
+    {% else %}
+        No previous files uploaded.
+    {% endif %}
 {% endblock %}
